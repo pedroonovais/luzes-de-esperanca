@@ -2946,10 +2946,6 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.group:hover .group-hover\:gap-3 {
-  gap: 0.75rem;
-}
-
 .group:hover .group-hover\:bg-black\/0 {
   background-color: rgb(0 0 0 / 0);
 }

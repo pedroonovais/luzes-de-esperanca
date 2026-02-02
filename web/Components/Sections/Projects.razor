@@ -12,8 +12,8 @@
         <div class="@GetGridClasses()">
             @foreach (var project in ProjectsList)
             {
-                <NavLink href="@($"/projetos/{project.Slug}")"
-                         class="group flex w-full max-w-md flex-col rounded-xl border border-[#e8dbce] bg-white p-4 transition-shadow hover:shadow-md"
+                <div href="@($"/projetos/{project.Slug}")"
+                     data-aos="fade-right" class="group flex w-full max-w-md flex-col rounded-xl border border-[#e8dbce] bg-white p-4 transition-shadow hover:shadow-md"
                          @onclick="() => HandleProjectClick(project.Slug)">
 
                     <div class="mb-4 aspect-video overflow-hidden rounded-xl">
@@ -31,14 +31,7 @@
                             @project.Description
                         </p>
                     </div>
-
-                    <div className="flex items-center gap-2 text-primary text-sm font-medium mt-2 group-hover:gap-3 transition-all">
-                        <span>Saber mais</span>
-                        <span className="material-symbols-outlined text-sm">
-                            arrow_forward
-                        </span>
-                    </div>
-                </NavLink>
+                </div>
             }
         </div>
     </div>

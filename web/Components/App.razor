@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8" />
@@ -15,6 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700&display=swap"
           rel="stylesheet" />
 
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          rel="stylesheet" />
+
+    <link rel="stylesheet" href="lib/aos/aos.css" />
+
     <ImportMap />
     <link rel="icon" type="image/png" href="logo.png" />
     <HeadOutlet />
@@ -24,6 +29,11 @@
     <Routes />
     <ReconnectModal />
     <script src="@Assets["_framework/blazor.web.js"]"></script>
+    <script src="lib/aos/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
