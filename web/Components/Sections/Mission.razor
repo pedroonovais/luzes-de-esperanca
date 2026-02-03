@@ -1,4 +1,6 @@
-﻿<section class="w-full bg-white py-12">
+﻿@using web.Components.Cards
+
+<section class="w-full bg-white py-12">
     <div class="mx-auto max-w-[1024px] px-4 sm:px-10">
         <div class="flex flex-col gap-12">
 
@@ -18,26 +20,7 @@
             <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
                 @foreach (var value in Values)
                 {
-                    <div data-aos="fade-right" class="flex flex-col gap-4 rounded-xl border border-[#e8dbce]
-                                    bg-background-light p-6 transition-shadow hover:shadow-md">
-
-                        <div class="flex size-12 items-center justify-center rounded-full
-                                        bg-primary/10 text-primary">
-                            <span class="material-symbols-outlined text-3xl">
-                                @value.Icon
-                            </span>
-                        </div>
-
-                        <div class="flex flex-col gap-2">
-                            <h3 class="text-xl font-bold text-text-main">
-                                @value.Title
-                            </h3>
-
-                            <p class="text-base leading-relaxed text-text-secondary">
-                                @value.Description
-                            </p>
-                        </div>
-                    </div>
+                    <HighlightCard Icon=@value.Icon Title=@value.Title Description=@value.Description/>
                 }
             </div>
 

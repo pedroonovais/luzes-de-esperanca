@@ -4,7 +4,7 @@
             <div class="group relative flex min-h-[560px] flex-col items-start justify-end gap-6
                        overflow-hidden rounded-xl bg-cover bg-center bg-no-repeat px-6
                        pb-12 shadow-lg sm:px-12 sm:pb-16"
-                 style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0,0,0,0) 100%), url('cover-hero-section.jpeg')">
+                 style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0,0,0,0) 100%), url('@ImagePath')">
 
                 @* Overlay *@
                 <div class="absolute inset-0 bg-black/10 transition-all duration-500 group-hover:bg-black/0"
@@ -15,36 +15,26 @@
                 <div class="relative z-10 flex max-w-3xl flex-col gap-4 text-left">
                     <h1 class="font-black leading-[1.1] tracking-[-0.033em] text-4xl text-white
                                drop-shadow-md sm:text-5xl lg:text-6xl">
-                        Transformando Vidas com
-                        <span class="text-primary"> Alegria</span> e Solidariedade
+                        @Title
                     </h1>
 
                     <h2 class="max-w-2xl text-base font-medium leading-relaxed
                                text-gray-100 drop-shadow-sm sm:text-lg">
-                        Construindo um futuro melhor através da sua generosidade.
-                        Junte-se a nós nesta missão de amor ao próximo.
+                        @Caption
                     </h2>
                 </div>
 
-                @* Ações *@
-                <div class="relative z-10 mt-2 flex flex-wrap gap-4">
-                    @*
-                    <button
-                        class="flex h-12 items-center justify-center rounded-lg bg-primary
-                               px-8 text-base font-bold
-                               text-white shadow-lg transition-colors hover:bg-primary-dark"
-                        @onclick="HandleDonationClick">
-                        Faça uma Doação
-                    </button>
-                    *@
-
-                    <a href="/sobre-nos"
-                       class="flex h-12 items-center justify-center rounded-lg bg-primary
-                              px-8 text-base font-bold
-                              text-white shadow-lg transition-colors hover:bg-primary-dark">
-                        Conheça Nossa História
-                    </a>
-                </div>
+                @if (!String.IsNullOrEmpty(TextButton) && !String.IsNullOrEmpty(LinkButton))
+                {
+                    <div class="relative z-10 mt-2 flex flex-wrap gap-4">
+                        <a href="@LinkButton"
+                           class="flex h-12 items-center justify-center rounded-lg bg-primary
+                                  px-8 text-base font-bold
+                                  text-white shadow-lg transition-colors hover:bg-primary-dark">
+                            @TextButton
+                        </a>
+                    </div>
+                }
             </div>
         </div>
     </div>

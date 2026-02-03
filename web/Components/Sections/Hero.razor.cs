@@ -2,13 +2,22 @@
 
 namespace web.Components.Sections;
 
-public partial class HeroSection : ComponentBase
+public partial class Hero : ComponentBase
 {
-    protected string HeroBackgroundStyle =>
-        "background-image: " +
-        "linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, " +
-        "rgba(0, 0, 0, 0.2) 60%, rgba(0,0,0,0) 100%), " +
-        "url('/cover-hero-section.jpeg');";
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string Caption { get; set; }
+
+    [Parameter]
+    public required string ImagePath { get; set; }
+
+    [Parameter]
+    public string TextButton { get; set; }
+
+    [Parameter]
+    public string LinkButton { get; set; }
 
     protected void HandleDonationClick()
     {
