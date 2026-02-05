@@ -1,0 +1,98 @@
+@page "/contato"
+
+@using System.ComponentModel.DataAnnotations
+@using web.Components.Sections
+
+<PageTitle>Luzes de esperança - Contato</PageTitle>
+
+<div className="relative flex flex-col min-h-screen w-full">
+    <Header />
+
+    <Hero Title="Fale Conosco"
+          Caption="Estamos aqui para ouvir você. Envie sua mensagem e responderemos o mais breve possível."
+          ImagePath="contato-hero.jpg"
+          TextButton=""
+    />
+
+    <section class="w-full bg-white py-12">
+        <div class="mx-auto max-w-[1024px] px-4 sm:px-10">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+
+                <div class="flex flex-col gap-6">
+                    <h3 class="text-2xl font-bold text-text-main">Nosso contato</h3>
+                    <p class="text-text-secondary">Telefone</p>
+                    <p class="font-medium">(11) 99999-9999</p>
+
+                    <p class="text-text-secondary">E-mail</p>
+                    <p class="font-medium">contato@alegriadeviver.org</p>
+
+                    <p class="text-text-secondary">Endereço</p>
+                    <p class="font-medium">Barueri, SP</p>
+
+                    <div class="mt-4">
+                        <a href="mailto:contato@alegriadeviver.org" class="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-white font-medium shadow hover:bg-primary-dark">
+                            Enviar e-mail
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <EditForm Model="Contact" OnValidSubmit="SendMessage">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+
+                        <div class="flex flex-col gap-4">
+                            <label class="text-sm font-medium text-text-secondary">Nome</label>
+                            <InputText class="w-full rounded-md border px-3 py-2" @bind-Value="Contact.Name" />
+
+                            <label class="text-sm font-medium text-text-secondary">E-mail</label>
+                            <InputText type="email" class="w-full rounded-md border px-3 py-2" @bind-Value="Contact.Email" />
+
+                            <label class="text-sm font-medium text-text-secondary">Mensagem</label>
+                            <InputTextArea class="w-full rounded-md border px-3 py-2 h-40" @bind-Value="Contact.Message" />
+
+                            <div class="pt-2">
+                                <button type="submit" class="rounded-lg bg-primary px-6 py-2 text-white font-bold shadow hover:bg-primary-dark">
+                                    Enviar Mensagem
+                                </button>
+                            </div>
+
+                            @if (Success)
+                            {
+                                <div class="rounded-md bg-green-50 p-4 text-green-800">Mensagem enviada com sucesso. Obrigado!</div>
+                            }
+                        </div>
+                    </EditForm>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <Web.Components.Layout.Footer />
+</div>
+
+@code {
+    private ContactModel Contact { get; set; } = new();
+    private bool Success { get; set; }
+
+    private void SendMessage()
+    {
+        // TODO: integrate with backend or email service. For now, show success message.
+        Success = true;
+        Contact = new ContactModel();
+    }
+
+    private sealed class ContactModel
+    {
+        [Required(ErrorMessage = "Informe seu nome")]
+        public string? Name { get; set; }
+
+        [Required(ErrorMessage = "Informe seu e-mail")]
+        [EmailAddress(ErrorMessage = "E-mail inválido")]
+        public string? Email { get; set; }
+
+        [Required(ErrorMessage = "Escreva uma mensagem")]
+        public string? Message { get; set; }
+    }
+}
