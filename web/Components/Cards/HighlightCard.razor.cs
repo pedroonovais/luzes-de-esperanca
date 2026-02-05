@@ -12,5 +12,8 @@ namespace web.Components.Cards
 
         [Parameter]
         public string Description { get; set; }
+
+        [Parameter]
+        public string BackgroundColor { get; set; } = " bg-background-light";
     }
 }

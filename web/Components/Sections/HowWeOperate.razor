@@ -1,0 +1,23 @@
+﻿@namespace Web.Components.Sections
+@using web.Components.Cards
+
+<section class="w-full bg-white py-12">
+    <div class="mx-auto max-w-[1024px] px-4 sm:px-10">
+        <div class="flex flex-col gap-12">
+
+            <div class="flex flex-col gap-4 text-center md:text-left">
+                <h2 class="text-3xl font-bold leading-tight tracking-tight text-text-main md:text-4xl">
+                    Como Atuamos
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                @foreach (var value in ListValues)
+                {
+                    <HighlightCard Icon=@value.Icon Title=@value.Title Description=@value.Description />
+                }
+            </div>
+
+        </div>
+    </div>
+</section>
